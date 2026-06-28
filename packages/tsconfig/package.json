@@ -1,0 +1,16 @@
+{
+  "name": "@package/tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "",
+  "exports": {
+    "./base.json": "./base.json",
+    "./node.json": "./node.json",
+    "./react.json": "./react.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.2"
+}

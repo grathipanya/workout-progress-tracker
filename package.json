@@ -1,0 +1,21 @@
+{
+  "name": "workout-progress-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "dev": "pnpm -r --if-present --parallel run dev",
+    "lint": "pnpm --filter @app/client run lint",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "test": "pnpm -r --if-present run test",
+    "clean": "find apps packages -type d -name dist -prune -exec rm -rf {} + && find apps packages -name '*.tsbuildinfo' -delete",
+    "dev:client": "pnpm --filter @app/client dev",
+    "dev:server": "pnpm --filter @app/server dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.2"
+}
