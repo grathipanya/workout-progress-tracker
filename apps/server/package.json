@@ -9,6 +9,8 @@
     "dev": "nodemon --watch . --ext ts --exec tsx index.ts"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@prisma/client": "^7.8.0",
     "cors": "^2.8.6",
     "express": "^5.2.1"
   },
@@ -16,7 +18,9 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^24.13.2",
+    "dotenv": "^17.4.2",
     "nodemon": "^3.1.14",
+    "prisma": "^7.8.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.22.4",
     "typescript": "~6.0.3"
