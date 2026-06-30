@@ -1,0 +1,4 @@
+export const AUTH_ERRORS = {
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  INVALID_PASSWORD: "INVALID_PASSWORD",
+} as const;
