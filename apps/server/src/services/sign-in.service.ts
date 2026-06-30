@@ -3,8 +3,9 @@ import bcrypt from "bcrypt";
 import { AUTH_ERRORS } from "@errors/auth.errors";
 import { AppError } from "@errors/app-error";
 
-import { prisma } from "@database/db";
 import { refreshAccessToken, signAccessToken } from "@utils/jwt";
+import { findUserByEmail } from "@repository/user.repository";
+import { upsertRefreshToken } from "@repository/refresh-token.repository";
 
 type signInServiceProps = {
   email: string;
@@ -12,16 +13,7 @@ type signInServiceProps = {
 };
 
 export const signInService = async ({ email, password }: signInServiceProps) => {
-  const user = await prisma.user.findFirst({
-    where: {
-      contactInfo: {
-        email,
-      },
-    },
-    include: {
-      contactInfo: true,
-    },
-  });
+  const user = await findUserByEmail(email);
 
   if (!user) {
     throw new AppError(AUTH_ERRORS.USER_NOT_FOUND, 400);
@@ -41,18 +33,7 @@ export const signInService = async ({ email, password }: signInServiceProps) => 
   const refreshToken = refreshAccessToken(payload);
 
   if (refreshToken) {
-    await prisma.refreshToken.upsert({
-      where: {
-        userId: user.user_id,
-      },
-      update: {
-        token: refreshToken,
-      },
-      create: {
-        userId: user.user_id,
-        token: refreshToken,
-      },
-    });
+    await upsertRefreshToken({ userId: user.user_id, token: refreshToken });
   }
 
   return { token, refreshToken };

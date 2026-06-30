@@ -10,6 +10,7 @@
       "@controller/*": ["./src/controller/*"],
       "@routes/*": ["./src/routes/*"],
       "@services/*": ["./src/services/*"],
+      "@repository/*": ["./src/repository/*"],
       "@utils/*": ["./src/utils/*"],
       "@errors/*": ["./src/errors/*"],
       "@database/*": ["./database/*"]

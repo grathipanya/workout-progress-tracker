@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 
 import { prisma } from "@database/db";
+import { createUser } from "@repository/user.repository";
 
 type RegisterUserProps = {
   firstName: string;
@@ -17,16 +18,16 @@ export const registerUserService = async ({
 }: RegisterUserProps) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  return await prisma.user.create({
-    data: {
-      firstName,
-      lastName,
-      password: hashedPassword,
-      contactInfo: {
-        create: {
-          email,
-        },
-      },
-    },
+  const {
+    firstName: createdFirstName,
+    lastName: createdLastName,
+    role,
+  } = await createUser({
+    firstName,
+    lastName,
+    hashedPassword,
+    email,
   });
+
+  return { createdFirstName, createdLastName, role };
 };
