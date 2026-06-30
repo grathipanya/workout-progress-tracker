@@ -3,20 +3,53 @@ import type { RefreshToken, User } from "@database/generated/prisma/client";
 
 type upsertRefreshTokenProps = {
   userId: User["user_id"];
-  token: RefreshToken["token"];
+  tokenHash: RefreshToken["tokenHash"];
 };
 
-export const upsertRefreshToken = async ({ userId, token }: upsertRefreshTokenProps) => {
+export const upsertRefreshToken = async ({ userId, tokenHash }: upsertRefreshTokenProps) => {
   return prisma.refreshToken.upsert({
     where: {
       userId,
     },
     update: {
-      token,
+      tokenHash,
+      revokedAt: null,
     },
     create: {
       userId,
-      token,
+      tokenHash,
+    },
+  });
+};
+
+export const getActiveRefreshTokenByUserId = async (userId: User["user_id"]) => {
+  return prisma.refreshToken.findUnique({
+    where: { userId },
+    select: {
+      tokenHash: true,
+      revokedAt: true,
+    },
+  });
+};
+
+export const revokeRefreshToken = async (userId: User["user_id"]) => {
+  return prisma.refreshToken.update({
+    where: {
+      userId,
+    },
+    data: {
+      revokedAt: new Date(),
+    },
+  });
+};
+
+export const clearRefreshToken = async (userId: User["user_id"]) => {
+  return prisma.refreshToken.update({
+    where: {
+      userId,
+    },
+    data: {
+      tokenHash: null,
     },
   });
 };

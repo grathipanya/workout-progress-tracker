@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 
-import { auth } from "@middleware/auth";
-import { registerRouter } from "@routes/register";
-import { signInRouter } from "@routes/sign-in";
+import { authenticateUser } from "@middleware/auth";
+import { authRouter } from "@routes/auth.routes";
+
 import errorHandler from "@middleware/error-handler";
 
 const app = express();
@@ -12,18 +13,18 @@ const app = express();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cookieParser());
 
 // Sample API Route
 app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.get("/protected", auth, (req, res) => {
+app.get("/protected", authenticateUser, (req, res) => {
   res.send("This is a protected route");
 });
 
-app.use("/register", registerRouter);
-app.use("/sign-in", signInRouter);
+app.use("/auth", authRouter);
 
 app.use(errorHandler);
 

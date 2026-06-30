@@ -695,7 +695,8 @@ export type ContactInfoScalarFieldEnum = (typeof ContactInfoScalarFieldEnum)[key
 export const RefreshTokenScalarFieldEnum = {
   refresh_token_id: 'refresh_token_id',
   userId: 'userId',
-  token: 'token',
+  tokenHash: 'tokenHash',
+  revokedAt: 'revokedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

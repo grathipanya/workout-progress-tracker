@@ -2,14 +2,24 @@ import authConfig from "@config/auth.config";
 import type { ContactInfo, User } from "@database/generated/prisma/client";
 import jwt from "jsonwebtoken";
 
-type AccessTokenProps = {
-  id: User["user_id"];
+export type AccessTokenProps = {
+  userId: User["user_id"];
   email: ContactInfo["email"];
   role: User["role"];
 };
 
-export const signAccessToken = ({ id, role, email }: AccessTokenProps) =>
-  jwt.sign({ id, role, email }, authConfig.jwtSecret!, { expiresIn: "3m" });
+export const signAccessToken = ({ userId, role, email }: AccessTokenProps) =>
+  jwt.sign({ userId, role, email }, authConfig.jwtSecret!, {
+    expiresIn: authConfig.jwtSecretExpiresIn as any,
+  });
 
-export const refreshAccessToken = ({ id, role, email }: AccessTokenProps) =>
-  jwt.sign({ id, role, email }, authConfig.jwtRefreshSecret!, { expiresIn: "24h" });
+export const refreshAccessToken = ({ userId, role, email }: AccessTokenProps) =>
+  jwt.sign({ userId, role, email }, authConfig.jwtRefreshSecret!, {
+    expiresIn: authConfig.jwtRefreshSecretExpiresIn as any,
+  });
+
+export const verifyAccessToken = (token: string) =>
+  jwt.verify(token, authConfig.jwtSecret!) as AccessTokenProps;
+
+export const verifyRefreshToken = (token: string) =>
+  jwt.verify(token, authConfig.jwtRefreshSecret!) as AccessTokenProps;

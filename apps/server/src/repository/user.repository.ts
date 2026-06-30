@@ -37,3 +37,14 @@ export const findUserByEmail = async (email: ContactInfo["email"]) => {
       }
     : null;
 };
+
+export const findUserById = async (userId: User["user_id"]) => {
+  const user = await prisma.user.findUnique({
+    where: { user_id: userId },
+    include: {
+      contactInfo: true,
+    },
+  });
+
+  return user;
+};
