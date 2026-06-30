@@ -4,6 +4,7 @@ import { AUTH_ERRORS } from "@errors/auth.errors";
 import { AppError } from "@errors/app-error";
 
 import { prisma } from "@database/db";
+import { refreshAccessToken, signAccessToken } from "@utils/jwt";
 
 type signInServiceProps = {
   email: string;
@@ -17,6 +18,9 @@ export const signInService = async ({ email, password }: signInServiceProps) => 
         email,
       },
     },
+    include: {
+      contactInfo: true,
+    },
   });
 
   if (!user) {
@@ -28,5 +32,28 @@ export const signInService = async ({ email, password }: signInServiceProps) => 
     throw new AppError(AUTH_ERRORS.INVALID_PASSWORD, 400);
   }
 
-  return user;
+  const { contactInfo } = user;
+  const { email: userEmail } = contactInfo || { email: "" };
+
+  const payload = { id: user.user_id, role: user.role, email: userEmail };
+
+  const token = signAccessToken(payload);
+  const refreshToken = refreshAccessToken(payload);
+
+  if (refreshToken) {
+    await prisma.refreshToken.upsert({
+      where: {
+        userId: user.user_id,
+      },
+      update: {
+        token: refreshToken,
+      },
+      create: {
+        userId: user.user_id,
+        token: refreshToken,
+      },
+    });
+  }
+
+  return { token, refreshToken };
 };

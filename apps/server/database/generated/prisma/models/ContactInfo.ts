@@ -27,17 +27,17 @@ export type AggregateContactInfo = {
 }
 
 export type ContactInfoAvgAggregateOutputType = {
-  id: number | null
+  contact_info_id: number | null
   userId: number | null
 }
 
 export type ContactInfoSumAggregateOutputType = {
-  id: number | null
+  contact_info_id: number | null
   userId: number | null
 }
 
 export type ContactInfoMinAggregateOutputType = {
-  id: number | null
+  contact_info_id: number | null
   userId: number | null
   mobile: string | null
   email: string | null
@@ -46,7 +46,7 @@ export type ContactInfoMinAggregateOutputType = {
 }
 
 export type ContactInfoMaxAggregateOutputType = {
-  id: number | null
+  contact_info_id: number | null
   userId: number | null
   mobile: string | null
   email: string | null
@@ -55,7 +55,7 @@ export type ContactInfoMaxAggregateOutputType = {
 }
 
 export type ContactInfoCountAggregateOutputType = {
-  id: number
+  contact_info_id: number
   userId: number
   mobile: number
   email: number
@@ -66,17 +66,17 @@ export type ContactInfoCountAggregateOutputType = {
 
 
 export type ContactInfoAvgAggregateInputType = {
-  id?: true
+  contact_info_id?: true
   userId?: true
 }
 
 export type ContactInfoSumAggregateInputType = {
-  id?: true
+  contact_info_id?: true
   userId?: true
 }
 
 export type ContactInfoMinAggregateInputType = {
-  id?: true
+  contact_info_id?: true
   userId?: true
   mobile?: true
   email?: true
@@ -85,7 +85,7 @@ export type ContactInfoMinAggregateInputType = {
 }
 
 export type ContactInfoMaxAggregateInputType = {
-  id?: true
+  contact_info_id?: true
   userId?: true
   mobile?: true
   email?: true
@@ -94,7 +94,7 @@ export type ContactInfoMaxAggregateInputType = {
 }
 
 export type ContactInfoCountAggregateInputType = {
-  id?: true
+  contact_info_id?: true
   userId?: true
   mobile?: true
   email?: true
@@ -190,7 +190,7 @@ export type ContactInfoGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 export type ContactInfoGroupByOutputType = {
-  id: number
+  contact_info_id: number
   userId: number
   mobile: string | null
   email: string
@@ -222,7 +222,7 @@ export type ContactInfoWhereInput = {
   AND?: Prisma.ContactInfoWhereInput | Prisma.ContactInfoWhereInput[]
   OR?: Prisma.ContactInfoWhereInput[]
   NOT?: Prisma.ContactInfoWhereInput | Prisma.ContactInfoWhereInput[]
-  id?: Prisma.IntFilter<"ContactInfo"> | number
+  contact_info_id?: Prisma.IntFilter<"ContactInfo"> | number
   userId?: Prisma.IntFilter<"ContactInfo"> | number
   mobile?: Prisma.StringNullableFilter<"ContactInfo"> | string | null
   email?: Prisma.StringFilter<"ContactInfo"> | string
@@ -232,7 +232,7 @@ export type ContactInfoWhereInput = {
 }
 
 export type ContactInfoOrderByWithRelationInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mobile?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -242,7 +242,7 @@ export type ContactInfoOrderByWithRelationInput = {
 }
 
 export type ContactInfoWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  contact_info_id?: number
   userId?: number
   email?: string
   AND?: Prisma.ContactInfoWhereInput | Prisma.ContactInfoWhereInput[]
@@ -252,10 +252,10 @@ export type ContactInfoWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"ContactInfo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContactInfo"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "userId" | "email">
+}, "contact_info_id" | "userId" | "email">
 
 export type ContactInfoOrderByWithAggregationInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mobile?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -272,7 +272,7 @@ export type ContactInfoScalarWhereWithAggregatesInput = {
   AND?: Prisma.ContactInfoScalarWhereWithAggregatesInput | Prisma.ContactInfoScalarWhereWithAggregatesInput[]
   OR?: Prisma.ContactInfoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ContactInfoScalarWhereWithAggregatesInput | Prisma.ContactInfoScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"ContactInfo"> | number
+  contact_info_id?: Prisma.IntWithAggregatesFilter<"ContactInfo"> | number
   userId?: Prisma.IntWithAggregatesFilter<"ContactInfo"> | number
   mobile?: Prisma.StringNullableWithAggregatesFilter<"ContactInfo"> | string | null
   email?: Prisma.StringWithAggregatesFilter<"ContactInfo"> | string
@@ -289,7 +289,7 @@ export type ContactInfoCreateInput = {
 }
 
 export type ContactInfoUncheckedCreateInput = {
-  id?: number
+  contact_info_id?: number
   userId: number
   mobile?: string | null
   email: string
@@ -306,7 +306,7 @@ export type ContactInfoUpdateInput = {
 }
 
 export type ContactInfoUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  contact_info_id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -315,7 +315,7 @@ export type ContactInfoUncheckedUpdateInput = {
 }
 
 export type ContactInfoCreateManyInput = {
-  id?: number
+  contact_info_id?: number
   userId: number
   mobile?: string | null
   email: string
@@ -331,7 +331,7 @@ export type ContactInfoUpdateManyMutationInput = {
 }
 
 export type ContactInfoUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  contact_info_id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -345,7 +345,7 @@ export type ContactInfoNullableScalarRelationFilter = {
 }
 
 export type ContactInfoCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -354,12 +354,12 @@ export type ContactInfoCountOrderByAggregateInput = {
 }
 
 export type ContactInfoAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
 
 export type ContactInfoMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -368,7 +368,7 @@ export type ContactInfoMaxOrderByAggregateInput = {
 }
 
 export type ContactInfoMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -377,7 +377,7 @@ export type ContactInfoMinOrderByAggregateInput = {
 }
 
 export type ContactInfoSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
+  contact_info_id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
 
@@ -425,7 +425,7 @@ export type ContactInfoCreateWithoutUserInput = {
 }
 
 export type ContactInfoUncheckedCreateWithoutUserInput = {
-  id?: number
+  contact_info_id?: number
   mobile?: string | null
   email: string
   createdAt?: Date | string
@@ -456,7 +456,7 @@ export type ContactInfoUpdateWithoutUserInput = {
 }
 
 export type ContactInfoUncheckedUpdateWithoutUserInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  contact_info_id?: Prisma.IntFieldUpdateOperationsInput | number
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -466,7 +466,7 @@ export type ContactInfoUncheckedUpdateWithoutUserInput = {
 
 
 export type ContactInfoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
+  contact_info_id?: boolean
   userId?: boolean
   mobile?: boolean
   email?: boolean
@@ -476,7 +476,7 @@ export type ContactInfoSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 }, ExtArgs["result"]["contactInfo"]>
 
 export type ContactInfoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
+  contact_info_id?: boolean
   userId?: boolean
   mobile?: boolean
   email?: boolean
@@ -486,7 +486,7 @@ export type ContactInfoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 }, ExtArgs["result"]["contactInfo"]>
 
 export type ContactInfoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
+  contact_info_id?: boolean
   userId?: boolean
   mobile?: boolean
   email?: boolean
@@ -496,7 +496,7 @@ export type ContactInfoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 }, ExtArgs["result"]["contactInfo"]>
 
 export type ContactInfoSelectScalar = {
-  id?: boolean
+  contact_info_id?: boolean
   userId?: boolean
   mobile?: boolean
   email?: boolean
@@ -504,7 +504,7 @@ export type ContactInfoSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ContactInfoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "mobile" | "email" | "createdAt" | "updatedAt", ExtArgs["result"]["contactInfo"]>
+export type ContactInfoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"contact_info_id" | "userId" | "mobile" | "email" | "createdAt" | "updatedAt", ExtArgs["result"]["contactInfo"]>
 export type ContactInfoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -521,7 +521,7 @@ export type $ContactInfoPayload<ExtArgs extends runtime.Types.Extensions.Interna
     user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    contact_info_id: number
     userId: number
     mobile: string | null
     email: string
@@ -610,8 +610,8 @@ export interface ContactInfoDelegate<ExtArgs extends runtime.Types.Extensions.In
    * // Get first 10 ContactInfos
    * const contactInfos = await prisma.contactInfo.findMany({ take: 10 })
    * 
-   * // Only select the `id`
-   * const contactInfoWithIdOnly = await prisma.contactInfo.findMany({ select: { id: true } })
+   * // Only select the `contact_info_id`
+   * const contactInfoWithContact_info_idOnly = await prisma.contactInfo.findMany({ select: { contact_info_id: true } })
    * 
    */
   findMany<T extends ContactInfoFindManyArgs>(args?: Prisma.SelectSubset<T, ContactInfoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContactInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -655,9 +655,9 @@ export interface ContactInfoDelegate<ExtArgs extends runtime.Types.Extensions.In
    *   ]
    * })
    * 
-   * // Create many ContactInfos and only return the `id`
-   * const contactInfoWithIdOnly = await prisma.contactInfo.createManyAndReturn({
-   *   select: { id: true },
+   * // Create many ContactInfos and only return the `contact_info_id`
+   * const contactInfoWithContact_info_idOnly = await prisma.contactInfo.createManyAndReturn({
+   *   select: { contact_info_id: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -746,9 +746,9 @@ export interface ContactInfoDelegate<ExtArgs extends runtime.Types.Extensions.In
    *   ]
    * })
    * 
-   * // Update zero or more ContactInfos and only return the `id`
-   * const contactInfoWithIdOnly = await prisma.contactInfo.updateManyAndReturn({
-   *   select: { id: true },
+   * // Update zero or more ContactInfos and only return the `contact_info_id`
+   * const contactInfoWithContact_info_idOnly = await prisma.contactInfo.updateManyAndReturn({
+   *   select: { contact_info_id: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -951,7 +951,7 @@ export interface Prisma__ContactInfoClient<T, Null = never, ExtArgs extends runt
  * Fields of the ContactInfo model
  */
 export interface ContactInfoFieldRefs {
-  readonly id: Prisma.FieldRef<"ContactInfo", 'Int'>
+  readonly contact_info_id: Prisma.FieldRef<"ContactInfo", 'Int'>
   readonly userId: Prisma.FieldRef<"ContactInfo", 'Int'>
   readonly mobile: Prisma.FieldRef<"ContactInfo", 'String'>
   readonly email: Prisma.FieldRef<"ContactInfo", 'String'>

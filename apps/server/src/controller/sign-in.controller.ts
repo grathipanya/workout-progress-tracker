@@ -5,9 +5,8 @@ import { type Request, type Response } from "express";
 
 export const signInController = async (req: Request, res: Response) => {
   try {
-    const signIn = await signInService(req.body);
-    // TODO implement JWT token generation and return it to the client
-    res.json(signIn);
+    const signInResponse = await signInService(req.body);
+    res.json(signInResponse);
   } catch (error) {
     if (error instanceof AppError) {
       switch (error.code) {

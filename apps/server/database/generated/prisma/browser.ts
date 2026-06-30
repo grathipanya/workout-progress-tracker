@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type ContactInfo = Prisma.ContactInfoModel
+/**
+ * Model RefreshToken
+ * 
+ */
+export type RefreshToken = Prisma.RefreshTokenModel

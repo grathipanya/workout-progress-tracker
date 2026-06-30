@@ -52,7 +52,8 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  ContactInfo: 'ContactInfo'
+  ContactInfo: 'ContactInfo',
+  RefreshToken: 'RefreshToken'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -72,7 +73,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 
 export const UserScalarFieldEnum = {
-  id: 'id',
+  user_id: 'user_id',
   firstName: 'firstName',
   lastName: 'lastName',
   role: 'role',
@@ -85,7 +86,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 
 export const ContactInfoScalarFieldEnum = {
-  id: 'id',
+  contact_info_id: 'contact_info_id',
   userId: 'userId',
   mobile: 'mobile',
   email: 'email',
@@ -94,6 +95,17 @@ export const ContactInfoScalarFieldEnum = {
 } as const
 
 export type ContactInfoScalarFieldEnum = (typeof ContactInfoScalarFieldEnum)[keyof typeof ContactInfoScalarFieldEnum]
+
+
+export const RefreshTokenScalarFieldEnum = {
+  refresh_token_id: 'refresh_token_id',
+  userId: 'userId',
+  token: 'token',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RefreshTokenScalarFieldEnum = (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum]
 
 
 export const SortOrder = {
