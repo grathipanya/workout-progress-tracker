@@ -3,3 +3,4 @@
 **/*.tsbuildinfo
 .env
 **/.env.local
+packages/ui/storybook/debug-storybook.log

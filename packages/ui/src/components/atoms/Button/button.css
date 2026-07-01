@@ -2,29 +2,30 @@
   display: inline-block;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
+  border-radius: var(--radius-pill);
   font-weight: 700;
   line-height: 1;
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 .storybook-button--primary {
-  background-color: #555ab9;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
 }
 .storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  box-shadow: color-mix(in srgb, var(--color-text) 15%, transparent) 0 0 0 var(--border-width-1)
+    inset;
   background-color: transparent;
-  color: #333;
+  color: var(--color-text);
 }
 .storybook-button--small {
-  padding: 10px 16px;
+  padding: var(--space-3) var(--space-4);
   font-size: 12px;
 }
 .storybook-button--medium {
-  padding: 11px 20px;
+  padding: calc(var(--space-3) + 1px) var(--space-5);
   font-size: 14px;
 }
 .storybook-button--large {
-  padding: 12px 24px;
+  padding: var(--space-4) var(--space-6);
   font-size: 16px;
 }

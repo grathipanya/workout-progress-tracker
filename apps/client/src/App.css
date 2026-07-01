@@ -1,19 +1,19 @@
 .counter {
   font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
   color: var(--accent);
   background: var(--accent-bg);
-  border: 2px solid transparent;
+  border: var(--border-width-2) solid transparent;
   transition: border-color 0.3s;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 
   &:hover {
     border-color: var(--accent-border);
   }
   &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: var(--border-width-2) solid var(--accent);
+    outline-offset: var(--space-1);
   }
 }
 
@@ -42,8 +42,7 @@
     z-index: 1;
     top: 34px;
     height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
   }
 
   .vite {
@@ -51,8 +50,7 @@
     top: 107px;
     height: 26px;
     width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
   }
 }
 
@@ -72,14 +70,14 @@
 
 #next-steps {
   display: flex;
-  border-top: 1px solid var(--border);
+  border-top: var(--border-default);
   text-align: left;
 
   & > div {
     flex: 1 1 0;
-    padding: 32px;
+    padding: var(--space-8);
     @media (max-width: 1024px) {
-      padding: 24px 20px;
+      padding: var(--space-6) var(--space-5);
     }
   }
 
@@ -96,11 +94,11 @@
 }
 
 #docs {
-  border-right: 1px solid var(--border);
+  border-right: var(--border-default);
 
   @media (max-width: 1024px) {
     border-right: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--border-default);
   }
 }
 
@@ -118,10 +116,10 @@
   a {
     color: var(--text-h);
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: var(--social-bg);
     display: flex;
-    padding: 6px 12px;
+    padding: var(--space-2) var(--space-4);
     align-items: center;
     gap: 8px;
     text-decoration: none;
@@ -155,7 +153,7 @@
 
 #spacer {
   height: 88px;
-  border-top: 1px solid var(--border);
+  border-top: var(--border-default);
   @media (max-width: 1024px) {
     height: 48px;
   }
@@ -167,7 +165,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;

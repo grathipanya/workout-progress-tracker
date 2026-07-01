@@ -4,34 +4,9 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "rootDir": "./",
     "paths": {
-      "#storybook/*": ["../packages/ui/storybook"],
-      "#storybook/*": ["../packages/ui/storybook"],
+      "#components/*": ["../packages/ui/src/components/*"]
     },
     "composite": true
   },
   "include": ["src"]
 }
-
-// {
-//   "extends": ["@tsconfig/node24/tsconfig.json", "../../packages/tsconfig/node.json"],
-//   "compilerOptions": {
-//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
-//     "outDir": "./dist",
-//     "rootDir": "./",
-//     "paths": {
-//       "@config/*": ["./src/config/*"],
-//       "@middleware/*": ["./src/middleware/*"],
-//       "@controller/*": ["./src/controller/*"],
-//       "@routes/*": ["./src/routes/*"],
-//       "@services/*": ["./src/services/*"],
-//       "@repository/*": ["./src/repository/*"],
-//       "@utils/*": ["./src/utils/*"],
-//       "@errors/*": ["./src/errors/*"],
-//       "@database/*": ["./database/*"]
-//     },
-//     "sourceMap": true,
-//     "noEmit": false,
-//     "types": ["node"]
-//   },
-//   "include": ["./src/**/*"]
-// }

@@ -10,18 +10,23 @@ import errorHandler from "@middleware/error-handler";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.LOCAL_APP_URL,
+    credentials: true,
+  }),
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
 
 // Sample API Route
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.json({ message: "hello" });
 });
 
 app.get("/protected", authenticateUser, (req, res) => {
-  res.send("This is a protected route");
+  res.json({ message: "This is a protected route" });
 });
 
 app.use("/auth", authRouter);
