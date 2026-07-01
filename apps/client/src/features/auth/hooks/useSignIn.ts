@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signIn } from "../api/auth.api";
-import { useAuth } from "../context/AuthContext";
+import { useAuthStore } from "../store/auth.store";
 import type { SignInProps } from "../auth.types";
 
 export const useSignIn = ({ email, password }: SignInProps) => {
-  const { login } = useAuth();
+  const login = useAuthStore((state) => state.login);
   const { setQueryData } = useQueryClient();
 
   const {
@@ -14,9 +14,9 @@ export const useSignIn = ({ email, password }: SignInProps) => {
     data: signInData,
   } = useMutation({
     mutationFn: () => signIn({ email, password }),
-    onSuccess: () => {
+    onSuccess: (data) => {
       login();
-      setQueryData(["user"], signInData);
+      setQueryData(["user"], data);
     },
   });
 

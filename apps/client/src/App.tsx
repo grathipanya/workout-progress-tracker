@@ -1,14 +1,14 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import "./App.css";
-import { useSignIn } from "./features/auth";
+import { useAuthStore, useSignIn } from "./features/auth";
 import { useRefreshToken } from "./features/auth/hooks/useRefreshToken";
 import { useSignOut } from "./features/auth/hooks/useSignOut";
 
 const App = () => {
-  // const [count, setCount] = useState(0);
+  const { isAuthenticated } = useAuthStore();
 
   return (
     <>
+      ---{isAuthenticated ? "you are logged in" : "you are not logged in"}---
       <LoginComponent />
     </>
   );
