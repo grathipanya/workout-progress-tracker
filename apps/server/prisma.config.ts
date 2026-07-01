@@ -8,10 +8,10 @@ import "dotenv/config";
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
-  schema: "database/prisma/schema.prisma",
+  schema: "../../packages/db/prisma/schema.prisma",
   migrations: {
-    path: "database/prisma/migrations",
-    seed: "tsx database/prisma/seed.ts",
+    path: "../../packages/db/prisma/migrations",
+    seed: "tsx ../../packages/db/prisma/seed.ts",
   },
   datasource: {
     url: env("DATABASE_URL"),

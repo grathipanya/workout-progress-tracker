@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@package/db": "workspace:*",
     "@package/tsconfig": "workspace:*",
     "@package/ui": "workspace:*",
     "@package/utils": "workspace:*",

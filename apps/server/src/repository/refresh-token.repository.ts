@@ -1,5 +1,5 @@
-import { prisma } from "@database/db";
-import type { RefreshToken, User } from "@database/generated/prisma/client";
+import { prisma } from "@package/db";
+import type { RefreshToken, User } from "@package/db/generated/prisma/client";
 
 type upsertRefreshTokenProps = {
   userId: User["user_id"];

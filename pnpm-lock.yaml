@@ -10,6 +10,9 @@ importers:
 
   apps/client:
     dependencies:
+      '@package/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@package/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -77,6 +80,9 @@ importers:
       '@neondatabase/serverless':
         specifier: ^1.1.0
         version: 1.1.0
+      '@package/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@prisma/adapter-neon':
         specifier: ^7.8.0
         version: 7.8.0
@@ -165,6 +171,37 @@ importers:
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
+
+  packages/db:
+    dependencies:
+      '@neondatabase/serverless':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@prisma/adapter-neon':
+        specifier: ^7.8.0
+        version: 7.8.0
+      '@prisma/client':
+        specifier: ^7.8.0
+        version: 7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3))(typescript@6.0.3)
+    devDependencies:
+      '@prisma/adapter-pg':
+        specifier: ^7.8.0
+        version: 7.8.0
+      bcrypt:
+        specifier: ^6.0.0
+        version: 6.0.0
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
+      pg:
+        specifier: ^8.22.0
+        version: 8.22.0
+      prisma:
+        specifier: ^7.8.0
+        version: 7.8.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
+      tsx:
+        specifier: ^4.22.4
+        version: 4.22.4
 
   packages/tsconfig: {}
 

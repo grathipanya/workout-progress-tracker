@@ -14,7 +14,7 @@ export const send = {
     return res.status(500).json({
       ok: false,
       message,
-      data,
+      error: data,
     });
   },
 
@@ -23,7 +23,7 @@ export const send = {
     return res.status(404).json({
       ok: false,
       message,
-      data,
+      error: data,
     });
   },
 
@@ -32,7 +32,7 @@ export const send = {
     return res.status(401).json({
       ok: false,
       message,
-      data,
+      error: data,
     });
   },
 
@@ -50,7 +50,7 @@ export const send = {
     return res.status(403).json({
       ok: false,
       message,
-      data,
+      error: data,
     });
   },
 
@@ -59,7 +59,7 @@ export const send = {
     return res.status(400).json({
       ok: false,
       message,
-      data,
+      error: data,
     });
   },
 };

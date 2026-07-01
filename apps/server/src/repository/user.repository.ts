@@ -1,5 +1,5 @@
-import { prisma } from "@database/db";
-import type { ContactInfo, User } from "@database/generated/prisma/client";
+import { prisma } from "@package/db";
+import type { ContactInfo, User } from "@package/db/generated/prisma/client";
 
 type CreateUserProps = {
   firstName: User["firstName"];

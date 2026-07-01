@@ -1,26 +1,22 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { PropsWithChildren } from "react";
-import { AuthContext } from "./useAuth";
+import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // todo find a better way to check if user is authenticated
   useEffect(() => {
-    // Check with the backend if a valid cookie session exists
+    // Check with the backend if a valid cookie session exists.
     const checkAuthStatus = async () => {
       try {
         const response = await fetch("http://localhost:3000/protected", {
           method: "GET",
-          // CRITICAL: Tells the browser to send cookies with cross-origin requests
           credentials: "include",
         });
 
-        if (response.ok) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
+        setIsAuthenticated(response.ok);
       } catch {
         setIsAuthenticated(false);
       } finally {
@@ -28,10 +24,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       }
     };
 
-    checkAuthStatus();
+    void checkAuthStatus();
   }, []);
-
-  console.log(isAuthenticated, loading);
 
   const login = () => setIsAuthenticated(true);
   const logout = () => setIsAuthenticated(false);

@@ -1,4 +1,4 @@
-import { Prisma } from "@database/generated/prisma/client";
+import { Prisma } from "@package/db/generated/prisma/client";
 import { AppError } from "@errors/app-error";
 import { AUTH_ERRORS } from "@errors/auth.errors";
 import {
